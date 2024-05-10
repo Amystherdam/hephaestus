@@ -35,5 +35,13 @@ module Hephaestus
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.generators do |generator|
+      generator.stylesheets false
+      generator.javascripts false
+      generator.assets false
+      generator.helper false
+      generator.template_engine false
+    end
   end
 end
