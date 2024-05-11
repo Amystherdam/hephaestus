@@ -1,9 +1,7 @@
 <template>
-  <div class="h-screen">
+  <div>
     <Navbar />
-    <div class="h-[91.5%]">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 <script>
@@ -16,3 +14,13 @@ export default {
   },
 };
 </script>
+
+<style>
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+</style>

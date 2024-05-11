@@ -1,11 +1,8 @@
 <template>
   <div
-    class="w-[600px] rounded-2xl p-6 shadow-2xl mt-6 flex flex-col items-center justify-center"
+    class="w-[600px] rounded-2xl p-6 shadow-2xl mt-6 mb-6 flex flex-col items-center justify-center"
   >
-    <img
-      class="w-[600px] mb-6 rounded-sm"
-      src="https://media.tacdn.com/media/attractions-content--1x-1/12/85/9e/df.jpg"
-    />
+    <img class="w-[600px] mb-6 rounded-sm" :src="imageLink" />
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy text ever since the
@@ -23,6 +20,9 @@
 <script>
 export default {
   name: "CardDescription",
+  props: {
+    imageLink: String,
+  },
 };
 </script>
 
