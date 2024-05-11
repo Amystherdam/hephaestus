@@ -1,5 +1,5 @@
-const esbuild = require('esbuild');
-const vuePlugin =  require("esbuild-plugin-vue3");
+import esbuild from 'esbuild';
+import vuePlugin from "esbuild-plugin-vue3";
 
 async function build() {
   try {

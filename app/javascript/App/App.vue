@@ -1,25 +1,26 @@
 <template>
   <div>
-    <h1>Teste</h1>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 <script>
+import Navbar from "Components/Navbar.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Navbar,
+  },
 };
 </script>
+
 <style>
-body {
-  background-color: #333;
-  color: #fff;
-}
-
-a {
-  color: red;
-}
-
-.teste {
-  background-color: black;
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 </style>
