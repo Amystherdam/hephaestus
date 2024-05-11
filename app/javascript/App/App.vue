@@ -1,25 +1,21 @@
 <template>
-  <div>
-    <h1>Teste</h1>
+  <div class="h-screen">
+    <Navbar />
+    <div class="h-4/5">
+      <router-view />
+    </div>
+    <Footer />
   </div>
 </template>
 <script>
+import Navbar from "Components/Navbar.vue";
+import Footer from "Components/Footer.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Navbar,
+    Footer,
+  },
 };
 </script>
-<style>
-body {
-  background-color: #333;
-  color: #fff;
-}
-
-a {
-  color: red;
-}
-
-.teste {
-  background-color: black;
-}
-</style>
