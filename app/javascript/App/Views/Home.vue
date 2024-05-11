@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col items-center justify-center h-full">
-    <img src="../Assets/hephaestus_logo.png" alt="" />
+    <img src="../Assets/hephaestus_logo.png" alt="hephaestusLogo" />
 
     <form action="" method="get" class="flex flex-col items-center mt-6">
       <div class="relative mt-2 rounded-md">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3">
-          <CameraIcon class="w-5" />
+          <CameraIcon class="w-5 fill-gray-300" />
         </div>
         <input
           type="text"
@@ -22,6 +22,26 @@
         class="bg-gray-300 py-2 px-4 mt-3 rounded-md"
       />
     </form>
+
+    <div
+      class="w-[600px] rounded-2xl p-6 shadow-2xl mt-6 flex flex-col items-center justify-center"
+    >
+      <img
+        class="w-[600px] mb-6 rounded-sm"
+        src="https://media.tacdn.com/media/attractions-content--1x-1/12/85/9e/df.jpg"
+      />
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+      </p>
+    </div>
   </div>
 </template>
 
