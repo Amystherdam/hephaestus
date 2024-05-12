@@ -35,6 +35,7 @@
 
 <script>
 import { CameraIcon } from "@heroicons/vue/24/solid";
+import api from "../Services/api";
 
 export default {
   name: "Form",
@@ -60,6 +61,8 @@ export default {
         const dataJson = JSON.stringify(data);
 
         this.$emit("formData", dataJson);
+
+        api.post("/describe/index", { hi: "test" });
 
         this.imageLink = "";
         this.errors = [];
