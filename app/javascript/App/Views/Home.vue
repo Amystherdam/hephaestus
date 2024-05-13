@@ -2,7 +2,11 @@
   <div class="flex flex-col items-center justify-center">
     <img src="../Assets/hephaestus_logo.png" alt="hephaestusLogo" />
     <Form @formData="handleForm" />
-    <CardDescription v-if="dataToAnalysisPresent" :imageLink="imageLink" />
+    <CardDescription
+      v-if="processedImage"
+      :imageLink="imageLink"
+      :imageDescription="imageDescription"
+    />
   </div>
 </template>
 
@@ -18,16 +22,18 @@ export default {
   },
   data() {
     return {
-      dataToAnalysisPresent: false,
+      processedImage: false,
       imageLink: "",
+      imageDescription: "",
     };
   },
   methods: {
     handleForm(data) {
       const formData = JSON.parse(data);
 
-      this.dataToAnalysisPresent = true;
+      this.processedImage = true;
       this.imageLink = formData.imageLink;
+      this.imageDescription = formData.imageDescription;
     },
   },
 };
