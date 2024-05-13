@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-col items-center mt-6" @submit="sendImageLink">
+  <form class="flex flex-col items-center mt-6" @submit="handleForm">
     <div class="relative mt-2 rounded-md">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3">
         <CameraIcon class="w-5 fill-gray-300" />
@@ -50,24 +50,29 @@ export default {
     };
   },
   methods: {
-    sendImageLink(e) {
+    async handleForm(e) {
       e.preventDefault();
 
-      if (this.imageLink) {
-        const data = {
-          imageLink: this.imageLink,
-        };
+      try {
+        if (this.imageLink) {
+          const response = await api.post("/describe/index", {
+            describe: { image_url: this.imageLink },
+          });
 
-        const dataJson = JSON.stringify(data);
+          const data = {
+            imageLink: response.data.image_url,
+            imageDescription: response.data.image_description,
+          };
 
-        this.$emit("formData", dataJson);
+          this.$emit("formData", JSON.stringify(data));
 
-        api.post("/describe/index", { hi: "test" });
-
-        this.imageLink = "";
-        this.errors = [];
-      } else {
-        this.errors.push("Enter a link");
+          this.imageLink = "";
+          this.errors = [];
+        } else {
+          this.errors.push("Enter a link");
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
     },
   },
