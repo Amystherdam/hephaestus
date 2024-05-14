@@ -42,7 +42,7 @@ export default {
   components: {
     CameraIcon,
   },
-  emits: ["formData"],
+  emits: ["formData", "submitForm"],
   data() {
     return {
       errors: [],
@@ -55,6 +55,8 @@ export default {
 
       try {
         if (this.imageLink) {
+          this.$emit("submitForm", JSON.stringify({ withErrors: false }));
+
           const response = await api.post("/describe/index", {
             describe: { image_url: this.imageLink },
           });
@@ -64,12 +66,13 @@ export default {
             imageDescription: response.data.image_description,
           };
 
-          this.$emit("formData", JSON.stringify(data));
-
           this.imageLink = "";
           this.errors = [];
+
+          this.$emit("formData", JSON.stringify(data));
         } else {
           this.errors.push("Enter a link");
+          this.$emit("submitForm", JSON.stringify({ withErrors: true }));
         }
       } catch (error) {
         console.error("Error:", error);
