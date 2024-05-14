@@ -49,10 +49,10 @@ export default {
   methods: {
     handleSubmitClick(data) {
       const formData = JSON.parse(data);
+      this.processedImage = false;
 
       if (formData.withErrors) {
         this.submitWithoutErrors = false;
-        this.processedImage = false;
       } else {
         this.submitWithoutErrors = true;
       }
