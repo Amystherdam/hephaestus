@@ -4,6 +4,7 @@
     <Form @formData="handleForm" @submitForm="handleSubmitClick" />
     <CardDescription
       v-if="processedImage"
+      imageWidth="w-[600px]"
       :imageLink="imageLink"
       :imageDescription="imageDescription"
     />

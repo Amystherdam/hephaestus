@@ -11,7 +11,8 @@ async function build() {
       loader: {
         ".svg": "file",
         ".png": "file",
-        ".jpg": "file"
+        ".jpg": "file",
+        ".DS_Store": "empty"
       },
       minify: true,
       nodePaths: ["app/javascript/App"],
