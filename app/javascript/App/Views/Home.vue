@@ -5,7 +5,7 @@
     <CardDescription
       v-if="processedImage"
       imageWidth="w-[600px]"
-      :imageLink="imageLink"
+      :imageUrl="imageUrl"
       :imageDescription="imageDescription"
     />
     <div
@@ -43,7 +43,7 @@ export default {
     return {
       submitWithoutErrors: false,
       processedImage: false,
-      imageLink: "",
+      imageUrl: "",
       imageDescription: "",
     };
   },
@@ -63,7 +63,7 @@ export default {
       const formData = JSON.parse(data);
 
       this.processedImage = true;
-      this.imageLink = formData.imageLink;
+      this.imageUrl = formData.imageUrl;
       this.imageDescription = formData.imageDescription;
     },
   },

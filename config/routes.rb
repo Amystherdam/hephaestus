@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  post "describe/index"
+  get "searches/index"
+  post "descriptions/index"
   get "*path", to: "main#index"
 
   root "main#index"

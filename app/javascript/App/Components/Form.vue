@@ -6,9 +6,9 @@
       </div>
       <input
         type="text"
-        v-model="imageLink"
-        id="imageLink"
-        name="imageLink"
+        v-model="imageUrl"
+        id="imageUrl"
+        name="imageUrl"
         :placeholder="`${errors.length > 0 ? errors[0] : 'Image link'}`"
         :class="
           'w-96 h-9 py-1.5 pl-9 border-2 rounded-2xl ' +
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       errors: [],
-      imageLink: "",
+      imageUrl: "",
     };
   },
   methods: {
@@ -54,19 +54,19 @@ export default {
       e.preventDefault();
 
       try {
-        if (this.imageLink) {
+        if (this.imageUrl) {
           this.$emit("submitForm", JSON.stringify({ withErrors: false }));
 
-          const response = await api.post("/describe/index", {
-            describe: { image_url: this.imageLink },
+          const response = await api.post("/descriptions/index", {
+            description: { image_url: this.imageUrl },
           });
 
           const data = {
-            imageLink: response.data.image_url,
+            imageUrl: response.data.image_url,
             imageDescription: response.data.image_description,
           };
 
-          this.imageLink = "";
+          this.imageUrl = "";
           this.errors = [];
 
           this.$emit("formData", JSON.stringify(data));

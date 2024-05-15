@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Gemini
   attr_accessor :api_key, :url, :image_url
 
@@ -39,9 +41,16 @@ class Gemini
     response = http.request(request)
 
     if response.code == "200"
-      JSON.parse(response.body)["candidates"][0].dig("content", "parts")[0]["text"]
+      image_description = JSON.parse(response.body)["candidates"][0].dig("content", "parts")[0]["text"]
+      save_description(image_url:, image_description:)
+
+      image_description
     else
       puts "Erro na solicitação: #{response.code} - #{response.message}"
     end
+  end
+
+  def save_description(**args)
+    Search.create(args)
   end
 end
