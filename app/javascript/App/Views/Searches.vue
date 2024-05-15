@@ -1,55 +1,43 @@
 <template>
-  <div class="h-full flex flex-row flex-wrap items-center mt-4 gap-5">
+  <div class="h-full flex flex-row flex-wrap mt-4 gap-5">
     <CardDescription
       v-for="search in searches"
-      :key="search.id"
+      :key="search._id"
       imageWidth="w-[400px]"
       imageHeight="h-[300px]"
-      :imageLink="search.imageLink"
-      :imageDescription="search.imageDescription"
+      :imageUrl="search.image_url"
+      :imageDescription="search.image_description"
     />
   </div>
 </template>
 
 <script>
 import CardDescription from "../Components/CardDescription.vue";
+import api from "../Services/api";
 
 export default {
   name: "Searches",
+  created() {
+    this.fetchSearches();
+  },
   data() {
     return {
-      searches: [
-        {
-          id: 1,
-          imageLink: "https://i.redd.it/xg9q5lxplln11.png",
-          imageDescription: "imageDescription",
-        },
-        {
-          id: 2,
-          imageLink: "https://i.redd.it/xg9q5lxplln11.png",
-          imageDescription: "imageDescription",
-        },
-        {
-          id: 3,
-          imageLink: "https://i.redd.it/xg9q5lxplln11.png",
-          imageDescription: "imageDescription",
-        },
-        {
-          id: 4,
-          imageLink:
-            "https://www.saibamais.net/wp-content/uploads/2014/10/artes-marciais.jpg",
-          imageDescription: "batatinha",
-        },
-        {
-          id: 5,
-          imageLink: "https://i.redd.it/xg9q5lxplln11.png",
-          imageDescription: "imageDescription",
-        },
-      ],
+      searches: [],
     };
   },
   components: {
     CardDescription,
+  },
+  methods: {
+    async fetchSearches() {
+      try {
+        const response = await api.get("/searches/index");
+
+        this.searches = response.data;
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
   },
 };
 </script>

@@ -1,13 +1,12 @@
 <template>
   <div
     :class="
-      `${imageWidth}` +
-      ' rounded-2xl p-6 shadow-2xl mt-6 mb-6 flex flex-col items-center justify-center'
+      `${imageWidth}` + ' rounded-2xl p-6 shadow-2xl mt-6 mb-6 flex flex-col'
     "
   >
     <img
       :class="'mb-6 rounded-sm ' + `${imageWidth} ${imageHeight}`"
-      :src="imageLink"
+      :src="imageUrl"
     />
     <p>
       {{ imageDescription }}
@@ -21,7 +20,7 @@ export default {
   props: {
     imageWidth: String,
     imageHeight: String,
-    imageLink: String,
+    imageUrl: String,
     imageDescription: String,
   },
 };
