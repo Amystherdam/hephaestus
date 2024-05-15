@@ -17,3 +17,8 @@ If you needing how connect `VueJS`, `MongoDB` and other points with `Ruby on Rai
 - Ruby on Rails 7.1.3
 - VueJS 3.4.27
 - Find more informations in `Gemfile` and `package.json`
+
+### References
+
+- You can [generate your api_key in Google AI Studio here](https://aistudio.google.com/app/apikey)
+- You can see [Gemini API documentation here](https://ai.google.dev/gemini-api/docs)
